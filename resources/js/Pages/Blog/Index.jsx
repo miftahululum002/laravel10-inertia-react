@@ -1,14 +1,17 @@
 import PrimaryButton from "@/Components/PrimaryButton";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Link, Head } from "@inertiajs/react";
+import { Link, Head, useForm, router } from "@inertiajs/react";
 
 export default function Blog({ blogs, auth }) {
+    const { delete: destroy } = useForm({});
     const deleteBlog = (id) => {
         const warning = confirm("Apakah Anda yakin untuk menghapus data?");
         if (!warning) {
             return;
         }
+        destroy(route("blogs.destroy", id));
     };
+
     return (
         <AuthenticatedLayout
             user={auth.user}

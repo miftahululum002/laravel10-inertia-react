@@ -55,10 +55,10 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $id)
+    public function edit(Blog $blog)
     {
         $data = [
-            'blog' => $id,
+            'blog' => $blog,
         ];
         return Inertia::render('Blog/Edit', $data);
     }
@@ -66,16 +66,27 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Blog $blog)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required'
+        ]);
+
+        $blog->title = $request->title;
+        $blog->content = $request->content;
+        $blog->save();
+        sleep(1);
+        return redirect()->route('blogs.index')->with('message', 'Blog Updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        // sleep(1);
+        return redirect()->route('blogs.index')->with('message', 'Blog Delete Successfully');
     }
 }
