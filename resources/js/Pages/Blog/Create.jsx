@@ -6,7 +6,16 @@ import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 
 export default function Create({ auth }) {
-    const [title, setTitle] = useState("");
+    const { data, setData, post, processing, errors, reset } = useForm({
+        title: "",
+        content: "",
+    });
+
+    const submit = (e) => {
+        e.preventDefault();
+        post(route("blogs.store"));
+    };
+
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -19,16 +28,43 @@ export default function Create({ auth }) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
-                        <form>
+                        <form onSubmit={submit}>
                             <InputLabel htmlFor="title" label="Title">
                                 Title
                             </InputLabel>
                             <TextInput
-                                name="title"
                                 id="title"
-                                value={title}
+                                type="text"
+                                name="title"
+                                value={data.title}
+                                className="mt-1 block w-full mb-2"
+                                autoComplete="title"
+                                isFocused={true}
+                                onChange={(e) =>
+                                    setData("title", e.target.value)
+                                }
+                                required
                                 placeholder="Title"
                             />
+                            <InputLabel htmlFor="content" label="content">
+                                Konten
+                            </InputLabel>
+                            <textarea
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                id="content"
+                                name="content"
+                                placeholder="Konten"
+                                required
+                                onChange={(e) => {
+                                    setData("content", e.target.value);
+                                }}
+                            ></textarea>
+                            <PrimaryButton
+                                className="mt-2"
+                                disabled={processing}
+                            >
+                                Simpan
+                            </PrimaryButton>
                         </form>
                     </div>
                 </div>
