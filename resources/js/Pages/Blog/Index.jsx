@@ -22,6 +22,11 @@ export default function Blog({ blogs, auth }) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
+                        <Link href="/blogs/create">
+                            <PrimaryButton className="py-2 px-4 bg-blue-500 mb-2">
+                                Tambah
+                            </PrimaryButton>
+                        </Link>
                         <table className="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400 border">
                             <thead className="text-slate-500">
                                 <tr>

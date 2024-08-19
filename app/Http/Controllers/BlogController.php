@@ -24,7 +24,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Blog/Create');
     }
 
     /**
@@ -46,9 +46,12 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Blog $id)
     {
-        //
+        $data = [
+            'blog' => $id,
+        ];
+        return Inertia::render('Blog/Edit', $data);
     }
 
     /**
