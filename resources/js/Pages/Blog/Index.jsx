@@ -1,7 +1,14 @@
+import PrimaryButton from "@/Components/PrimaryButton";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Link, Head } from "@inertiajs/react";
 
 export default function Blog({ blogs, auth }) {
+    const deleteBlog = (id) => {
+        const warning = confirm("Apakah Anda yakin untuk menghapus data?");
+        if (!warning) {
+            return;
+        }
+    };
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -19,11 +26,14 @@ export default function Blog({ blogs, auth }) {
                             <thead className="text-slate-500">
                                 <tr>
                                     <th>No</th>
-                                    <th className="px-6 py-4 font-medium text-gray-900 dark:text-white text-center">
+                                    <th className="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                         Title
                                     </th>
                                     <th className="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                         Konten
+                                    </th>
+                                    <th className="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                        Opsi
                                     </th>
                                 </tr>
                             </thead>
@@ -40,7 +50,24 @@ export default function Blog({ blogs, auth }) {
                                         <td className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                             {blog.content}
                                         </td>
-                                        <td className="text-center"></td>
+                                        <td className="text-center">
+                                            <div className="flex">
+                                                <Link
+                                                    className="px-4 py-2 bg-blue-500 text-white rounded-none"
+                                                    href={`blogs/${blog.id}/edit`}
+                                                >
+                                                    Edit
+                                                </Link>
+                                                <PrimaryButton
+                                                    onClick={() =>
+                                                        deleteBlog(blog.id)
+                                                    }
+                                                    className="rounded-none bg-red-600 text-white"
+                                                >
+                                                    Hapus
+                                                </PrimaryButton>
+                                            </div>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
