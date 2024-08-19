@@ -4,7 +4,8 @@ import { Link, Head, useForm } from "@inertiajs/react";
 import { useState } from "react";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
-
+import InputError from "@/Components/InputError";
+import TextAreaInput from "@/Components/TextAreaInput";
 export default function Create({ auth }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         title: "",
@@ -32,6 +33,7 @@ export default function Create({ auth }) {
                             <InputLabel htmlFor="title" label="Title">
                                 Title
                             </InputLabel>
+
                             <TextInput
                                 id="title"
                                 type="text"
@@ -43,28 +45,43 @@ export default function Create({ auth }) {
                                 onChange={(e) =>
                                     setData("title", e.target.value)
                                 }
-                                required
                                 placeholder="Title"
+                            />
+                            <InputError
+                                message={errors.title}
+                                className="mt-2"
                             />
                             <InputLabel htmlFor="content" label="content">
                                 Konten
                             </InputLabel>
-                            <textarea
+
+                            <TextAreaInput
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 id="content"
                                 name="content"
                                 placeholder="Konten"
-                                required
                                 onChange={(e) => {
                                     setData("content", e.target.value);
                                 }}
-                            ></textarea>
-                            <PrimaryButton
+                            ></TextAreaInput>
+                            <InputError
+                                message={errors.content}
                                 className="mt-2"
-                                disabled={processing}
-                            >
-                                Simpan
-                            </PrimaryButton>
+                            />
+                            <div className="flex">
+                                <PrimaryButton
+                                    className="px-4 py-1 rounded-none mt-1"
+                                    disabled={processing}
+                                >
+                                    Simpan
+                                </PrimaryButton>
+                                <Link
+                                    href="/blogs"
+                                    className="py-1 px-4 bg-slate-300 mt-1 rounded-none"
+                                >
+                                    Kembali
+                                </Link>
+                            </div>
                         </form>
                     </div>
                 </div>

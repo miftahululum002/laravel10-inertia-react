@@ -1,6 +1,6 @@
 import PrimaryButton from "@/Components/PrimaryButton";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Link, Head, useForm, router } from "@inertiajs/react";
+import { Link, Head, useForm } from "@inertiajs/react";
 
 export default function Blog({ blogs, auth }) {
     const { delete: destroy } = useForm({});
@@ -26,7 +26,7 @@ export default function Blog({ blogs, auth }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
                         <Link href="/blogs/create">
-                            <PrimaryButton className="py-2 px-4 bg-blue-500 mb-2">
+                            <PrimaryButton className="py-1 px-4 bg-blue-500 mb-2 rounded-none">
                                 Tambah
                             </PrimaryButton>
                         </Link>

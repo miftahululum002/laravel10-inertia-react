@@ -3,6 +3,8 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Link, Head, useForm } from "@inertiajs/react";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
+import InputError from "@/Components/InputError";
+import TextAreaInput from "@/Components/TextAreaInput";
 export default function Edit({ auth, blog }) {
     const { data, setData, put, processing, errors, reset } = useForm({
         id: blog.id,
@@ -41,29 +43,44 @@ export default function Edit({ auth, blog }) {
                                 onChange={(e) =>
                                     setData("title", e.target.value)
                                 }
-                                required
                                 placeholder="Title"
+                            />
+                            <InputError
+                                message={errors.title}
+                                className="mt-2"
                             />
                             <InputLabel htmlFor="content" label="content">
                                 Konten
                             </InputLabel>
-                            <textarea
+
+                            <TextAreaInput
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 id="content"
                                 name="content"
                                 placeholder="Konten"
-                                required
                                 value={data.content}
                                 onChange={(e) => {
                                     setData("content", e.target.value);
                                 }}
-                            ></textarea>
-                            <PrimaryButton
+                            ></TextAreaInput>
+                            <InputError
+                                message={errors.content}
                                 className="mt-2"
-                                disabled={processing}
-                            >
-                                Simpan
-                            </PrimaryButton>
+                            />
+                            <div className="flex">
+                                <PrimaryButton
+                                    className="mt-1 px-4 py-1 rounded-none"
+                                    disabled={processing}
+                                >
+                                    Simpan
+                                </PrimaryButton>
+                                <Link
+                                    href="/blogs"
+                                    className="py-1 px-4 bg-slate-300 mt-1 rounded-none"
+                                >
+                                    Kembali
+                                </Link>
+                            </div>
                         </form>
                     </div>
                 </div>
