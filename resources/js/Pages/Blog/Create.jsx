@@ -12,7 +12,7 @@ export default function Create({ auth }) {
         content: "",
     });
 
-    const submit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         post(route("blogs.store"));
     };
@@ -29,7 +29,7 @@ export default function Create({ auth }) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
-                        <form onSubmit={submit}>
+                        <form onSubmit={handleSubmit}>
                             <InputLabel htmlFor="title" label="Title">
                                 Title
                             </InputLabel>
