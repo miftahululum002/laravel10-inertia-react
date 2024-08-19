@@ -99,7 +99,7 @@ export default function Create({ auth }) {
                                     Simpan
                                 </PrimaryButton>
                                 <Link
-                                    href="/blogs"
+                                    href={route("products.index")}
                                     className="py-1 px-4 bg-slate-300 mt-1 rounded-none"
                                 >
                                     Kembali

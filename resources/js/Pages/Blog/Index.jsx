@@ -25,7 +25,7 @@ export default function Blog({ blogs, auth }) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
-                        <Link href="/blogs/create">
+                        <Link href={route("blogs.create")}>
                             <PrimaryButton className="py-1 px-4 bg-blue-500 mb-2 rounded-none">
                                 Tambah
                             </PrimaryButton>
@@ -62,7 +62,10 @@ export default function Blog({ blogs, auth }) {
                                             <div className="flex">
                                                 <Link
                                                     className="px-4 py-2 bg-blue-500 text-white rounded-none"
-                                                    href={`blogs/${blog.id}/edit`}
+                                                    href={route(
+                                                        "blogs.edit",
+                                                        blog.id
+                                                    )}
                                                 >
                                                     Edit
                                                 </Link>
