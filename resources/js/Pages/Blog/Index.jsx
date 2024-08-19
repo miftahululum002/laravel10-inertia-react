@@ -14,13 +14,17 @@ export default function Blog({ blogs, auth }) {
             <Head title="Blog" />
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-1">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
                         <table className="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400 border">
                             <thead className="text-slate-500">
                                 <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Kontent</th>
+                                    <th>No</th>
+                                    <th className="px-6 py-4 font-medium text-gray-900 dark:text-white text-center">
+                                        Title
+                                    </th>
+                                    <th className="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                        Konten
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
