@@ -20,7 +20,7 @@ export default function Login({ status, canResetPassword }) {
         };
     }, []);
 
-    const submit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         post(route("login"));
@@ -36,7 +36,7 @@ export default function Login({ status, canResetPassword }) {
                 </div>
             )}
 
-            <form onSubmit={submit}>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 
