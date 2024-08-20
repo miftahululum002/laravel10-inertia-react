@@ -1,9 +1,9 @@
 import { useState } from "react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
-import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
+import NavBar from "./NavBar";
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -20,27 +20,7 @@ export default function Authenticated({ user, header, children }) {
                                     <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
                                 </Link>
                             </div>
-
-                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
-                                    href={route("dashboard")}
-                                    active={route().current("dashboard")}
-                                >
-                                    Dashboard
-                                </NavLink>
-                                <NavLink
-                                    href={route("blogs.index")}
-                                    active={route().current("blogs.index")}
-                                >
-                                    Blog
-                                </NavLink>
-                                <NavLink
-                                    href={route("products.index")}
-                                    active={route().current("products.index")}
-                                >
-                                    Produk
-                                </NavLink>
-                            </div>
+                            <NavBar />
                         </div>
 
                         <div className="hidden sm:flex sm:items-center sm:ms-6">
