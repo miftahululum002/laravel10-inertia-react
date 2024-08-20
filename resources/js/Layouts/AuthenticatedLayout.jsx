@@ -4,6 +4,9 @@ import Dropdown from "@/Components/Dropdown";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import NavBar from "./NavBar";
+import { IoMoon } from "react-icons/io5";
+import { IoSunny } from "react-icons/io5";
+import { IconContext } from "react-icons";
 // import "../scripts";
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -47,17 +50,17 @@ export default function Authenticated({ user, header, children }) {
                                 </Link>
                             </div>
                             <NavBar />
-                            <div className="flex mt-3 pt-3">
-                                <button
-                                    id="toggle-dark"
-                                    onClick={() => darkModeHandler()}
-                                >
-                                    {dark && "Dark"}
-                                    {!dark && "Light"}
-                                </button>
-                            </div>
                         </div>
-
+                        <div className="block mt-2 pt-3 w-5">
+                            <button
+                                id="toggle-dark"
+                                className="flex justify-end mr-1 pt-1"
+                                onClick={() => darkModeHandler()}
+                            >
+                                {dark && <IoSunny />}
+                                {!dark && <IoMoon />}
+                            </button>
+                        </div>
                         <div className="hidden sm:flex sm:items-center sm:ms-6">
                             <div className="ms-3 relative">
                                 <Dropdown>
