@@ -9,7 +9,7 @@ const links = [
 ];
 export default function NavBar() {
     return (
-        <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex dark:text-secondary">
+        <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex dark:text-white">
             {links.map((link, index) => (
                 <NavLink
                     key={index}
