@@ -1,3 +1,4 @@
+import DangerButton from "@/Components/DangerButton";
 import PrimaryButton from "@/Components/PrimaryButton";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Link, Head, useForm } from "@inertiajs/react";
@@ -61,7 +62,7 @@ export default function Blog({ blogs, auth }) {
                                         <td className="text-center">
                                             <div className="flex">
                                                 <Link
-                                                    className="px-4 py-2 bg-blue-500 text-white rounded-none"
+                                                    className="px-4 py-1 bg-blue-500 text-white rounded-none"
                                                     href={route(
                                                         "blogs.edit",
                                                         blog.id
@@ -69,14 +70,14 @@ export default function Blog({ blogs, auth }) {
                                                 >
                                                     Edit
                                                 </Link>
-                                                <PrimaryButton
+                                                <DangerButton
                                                     onClick={() =>
                                                         deleteBlog(blog.id)
                                                     }
-                                                    className="rounded-none bg-red-600 text-white"
+                                                    className="text-white"
                                                 >
                                                     Hapus
-                                                </PrimaryButton>
+                                                </DangerButton>
                                             </div>
                                         </td>
                                     </tr>

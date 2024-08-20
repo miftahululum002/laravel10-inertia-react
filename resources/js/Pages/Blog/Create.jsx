@@ -70,7 +70,7 @@ export default function Create({ auth }) {
                             />
                             <div className="flex">
                                 <PrimaryButton
-                                    className="px-4 py-1 rounded-none mt-1"
+                                    className="px-4 py-1 mt-1"
                                     disabled={processing}
                                 >
                                     Simpan
