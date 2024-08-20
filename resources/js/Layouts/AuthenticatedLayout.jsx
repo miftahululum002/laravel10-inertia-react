@@ -26,7 +26,7 @@ export default function Authenticated({ user, header, children }) {
 
     const darkModeHandler = () => {
         setDark(!dark);
-        if (dark) {
+        if (!dark) {
             localStorage.theme = "dark";
             document.documentElement.classList.add("dark");
         } else {
