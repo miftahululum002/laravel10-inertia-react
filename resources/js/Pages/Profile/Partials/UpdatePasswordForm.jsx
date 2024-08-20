@@ -51,9 +51,9 @@ export default function UpdatePasswordForm({ className = "" }) {
                     Ubah Password
                 </h2>
 
-                <p className="mt-1 text-sm text-gray-600">
-                    Ensure your account is using a long, random password to stay
-                    secure.
+                <p className="mt-1 text-sm text-justify text-gray-600">
+                    Pastikan akun Anda menggunakan kata sandi yang panjang dan
+                    acak agar tetap aman.
                 </p>
             </header>
 
