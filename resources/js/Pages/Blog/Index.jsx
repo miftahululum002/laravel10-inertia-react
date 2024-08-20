@@ -62,7 +62,7 @@ export default function Blog({ blogs, auth }) {
                                         <td className="text-center">
                                             <div className="flex">
                                                 <Link
-                                                    className="px-4 py-1 bg-blue-500 text-white rounded-none"
+                                                    className="px-4 py-1 bg-primary text-white rounded-none"
                                                     href={route(
                                                         "blogs.edit",
                                                         blog.id
@@ -74,7 +74,7 @@ export default function Blog({ blogs, auth }) {
                                                     onClick={() =>
                                                         deleteBlog(blog.id)
                                                     }
-                                                    className="text-white"
+                                                    className=""
                                                 >
                                                     Hapus
                                                 </DangerButton>

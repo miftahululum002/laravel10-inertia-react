@@ -69,14 +69,14 @@ export default function Edit({ auth, blog }) {
                             />
                             <div className="flex">
                                 <PrimaryButton
-                                    className="mt-1 px-4 py-1 rounded-none"
+                                    className="mt-1 px-4 py-1"
                                     disabled={processing}
                                 >
                                     Simpan
                                 </PrimaryButton>
                                 <Link
                                     href={route("blogs.index")}
-                                    className="py-1 px-4 bg-slate-300 mt-1 rounded-none"
+                                    className="py-1 px-4 bg-secondary mt-1 rounded-none"
                                 >
                                     Kembali
                                 </Link>

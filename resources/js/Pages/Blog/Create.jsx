@@ -33,7 +33,6 @@ export default function Create({ auth }) {
                             <InputLabel htmlFor="title" label="Title">
                                 Title
                             </InputLabel>
-
                             <TextInput
                                 id="title"
                                 type="text"
@@ -77,7 +76,7 @@ export default function Create({ auth }) {
                                 </PrimaryButton>
                                 <Link
                                     href={route("blogs.index")}
-                                    className="py-1 px-4 bg-slate-300 mt-1 rounded-none"
+                                    className="py-1 px-4 bg-secondary mt-1 rounded-none"
                                 >
                                     Kembali
                                 </Link>

@@ -80,7 +80,7 @@ export default function Products({ products, auth }) {
                                                     onClick={() =>
                                                         deleteData(data.id)
                                                     }
-                                                    className="rounded-none text-white"
+                                                    className="rounded-none"
                                                 >
                                                     Hapus
                                                 </DangerButton>
