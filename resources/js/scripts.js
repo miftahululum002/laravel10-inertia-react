@@ -21,7 +21,7 @@ setTimeout(() => {
     } else {
         darkToggle.checked = false;
     }
-}, 400);
+}, 100);
 if (
     localStorage.theme === "dark" ||
     (!("theme" in localStorage) &&
