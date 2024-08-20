@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/blogs', BlogController::class);
     Route::resource('/products', ProductController::class);
+    Route::resource('/contacts', ContactController::class);
 });
 
 require __DIR__ . '/auth.php';
