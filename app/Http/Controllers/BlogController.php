@@ -15,6 +15,7 @@ class BlogController extends Controller
     {
         $data = [
             'blogs' => Blog::all(),
+            'title' => 'Blog',
         ];
         return Inertia::render('Blog/Index', $data);
     }
@@ -24,7 +25,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Blog/Create');
+        $data['title'] = 'Tambah Blog';
+        return Inertia::render('Blog/Create', $data);
     }
 
     /**

@@ -16,6 +16,7 @@ class ProductController extends Controller
     {
         $data = [
             'products' => Product::all(),
+            'title' => 'Produk'
         ];
         return Inertia::render($this->_directory . '/Index', $data);
     }
@@ -25,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Inertia::render($this->_directory . '/Create');
+        $data['title'] = 'Tambah Produk';
+        return Inertia::render($this->_directory . '/Create', $data);
     }
 
     /**
@@ -62,7 +64,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $data = ['product' => $product];
+        $data = [
+            'product' => $product,
+            'title' => 'Edit Produk'
+        ];
         return Inertia::render($this->_directory . '/Edit', $data);
     }
 
