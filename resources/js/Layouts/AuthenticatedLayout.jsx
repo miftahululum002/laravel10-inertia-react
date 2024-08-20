@@ -6,8 +6,6 @@ import { Link } from "@inertiajs/react";
 import NavBar from "./NavBar";
 import { IoMoon } from "react-icons/io5";
 import { IoSunny } from "react-icons/io5";
-import { IconContext } from "react-icons";
-// import "../scripts";
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
