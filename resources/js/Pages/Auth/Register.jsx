@@ -32,8 +32,7 @@ export default function Register() {
 
             <form onSubmit={handleSubmit}>
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
-
+                    <InputLabel htmlFor="name" value="Nama" />
                     <TextInput
                         id="name"
                         name="name"
@@ -41,10 +40,10 @@ export default function Register() {
                         className="mt-1 block w-full"
                         autoComplete="name"
                         isFocused={true}
+                        placeholder="Nama"
                         onChange={(e) => setData("name", e.target.value)}
                         required
                     />
-
                     <InputError message={errors.name} className="mt-2" />
                 </div>
 
@@ -58,6 +57,7 @@ export default function Register() {
                         value={data.email}
                         className="mt-1 block w-full"
                         autoComplete="username"
+                        placeholder="Email"
                         onChange={(e) => setData("email", e.target.value)}
                         required
                     />
@@ -75,6 +75,7 @@ export default function Register() {
                         value={data.password}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
+                        placeholder="Password"
                         onChange={(e) => setData("password", e.target.value)}
                         required
                     />
@@ -85,7 +86,7 @@ export default function Register() {
                 <div className="mt-4">
                     <InputLabel
                         htmlFor="password_confirmation"
-                        value="Confirm Password"
+                        value="Password Konfirmasi"
                     />
 
                     <TextInput
@@ -95,6 +96,7 @@ export default function Register() {
                         value={data.password_confirmation}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
+                        placeholder="Password konfirmasi"
                         onChange={(e) =>
                             setData("password_confirmation", e.target.value)
                         }
