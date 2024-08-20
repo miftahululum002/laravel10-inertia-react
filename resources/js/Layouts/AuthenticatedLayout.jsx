@@ -4,10 +4,36 @@ import Dropdown from "@/Components/Dropdown";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import NavBar from "./NavBar";
-import "../scripts";
+// import "../scripts";
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
+    let isDark = false;
+    if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+        localStorage.theme = "dark";
+        document.documentElement.classList.add("dark");
+        isDark = true;
+    } else {
+        localStorage.theme = "light";
+        isDark = false;
+        document.documentElement.classList.remove("dark");
+    }
+    const [dark, setDark] = useState(isDark);
+
+    const darkModeHandler = () => {
+        setDark(!dark);
+        if (dark) {
+            localStorage.theme = "dark";
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.theme = "light";
+        }
+    };
 
     return (
         <div className="min-h-screen bg-gray-100 dark:bg-dark">
@@ -21,6 +47,15 @@ export default function Authenticated({ user, header, children }) {
                                 </Link>
                             </div>
                             <NavBar />
+                            <div className="flex mt-3 pt-3">
+                                <button
+                                    id="toggle-dark"
+                                    onClick={() => darkModeHandler()}
+                                >
+                                    {dark && "Dark"}
+                                    {!dark && "Light"}
+                                </button>
+                            </div>
                         </div>
 
                         <div className="hidden sm:flex sm:items-center sm:ms-6">
